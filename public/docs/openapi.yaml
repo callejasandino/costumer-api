@@ -1,0 +1,236 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/auth/login:
+    post:
+      summary: ''
+      operationId: postApiAuthLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: glind@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: O7zE=t\B<x
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/register:
+    post:
+      summary: ''
+      operationId: postApiAuthRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: xojpvpqnbdjjhkahe
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: theller@example.com
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: XF8vwTPS4
+              required:
+                - name
+                - email
+                - password
+      security: []
+  /api/auth/logout:
+    post:
+      summary: ''
+      operationId: postApiAuthLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/auth/validateToken:
+    get:
+      summary: ''
+      operationId: getApiAuthValidateToken
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/customers/index:
+    get:
+      summary: ''
+      operationId: getApiCustomersIndex
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/customers/store:
+    post:
+      summary: ''
+      operationId: postApiCustomersStore
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: pjojjzcbc
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: fbvpwhp
+                age:
+                  type: integer
+                  description: ''
+                  example: 11
+                dob:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-06-13T10:36:16'
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 50 characters.'
+                  example: langosh.mae@example.com
+              required:
+                - first_name
+                - last_name
+                - age
+                - dob
+                - email
+      security: []
+  '/api/customers/update/{customerId}':
+    put:
+      summary: ''
+      operationId: putApiCustomersUpdateCustomerId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: aaufdoejowwp
+                last_name:
+                  type: string
+                  description: 'Must not be greater than 50 characters.'
+                  example: gjuicywzumcqzzitpjqxncs
+                age:
+                  type: integer
+                  description: ''
+                  example: 3
+                dob:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2024-06-13T10:36:16'
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 50 characters.'
+                  example: oral89@example.net
+      security: []
+    parameters:
+      -
+        in: path
+        name: customerId
+        description: ''
+        example: dolore
+        required: true
+        schema:
+          type: string
+  '/api/customers/destroy/{customerId}':
+    delete:
+      summary: ''
+      operationId: deleteApiCustomersDestroyCustomerId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: customerId
+        description: ''
+        example: et
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''
